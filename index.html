@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    .nav{
+        display: flex;
+        width: 100%;
+        background-color: rgb(22, 146, 22);
+        color: white;
+        font-family: sans-serif;
+        align-items: center;
+        justify-content: center;
+        height: 50px;
+    }
+
+    body{
+        background: rgb(85, 84, 83);
+    }
+    .mainBody{
+        margin:auto;
+        width:270px;
+        /* background-color: red; */
+        padding-top: 40px;
+    }
+    #txtInput{
+        width:100%;
+        height: 350px;
+        background-color: black;
+        color: rgb(39, 219, 39);
+        font-size: 18px;
+        outline: none;
+        padding: 5px;
+    }
+    #btnSpeak{
+        width: 200px;
+        height: 40px;
+        cursor: pointer;
+        background: rgb(28, 50, 170);
+        color: white;
+        font-size: 20px;
+        border: 1px solid black;
+        border-radius: 4px;
+        margin-top: 25px;
+    }
+
+</style>
+<body>
+    <div class="nav">
+        <h1>Text to Speech</h1>
+    </div>
+    <div class="mainBody">
+        <textarea id='txtInput' ></textarea> <br><br>  
+        <center>
+
+            <button id='btnSpeak'>Speak!</button>
+        </center>  
+    </div>
+
+    <script>
+        document.getElementById("btnSpeak").addEventListener("click", function(){
+            var msg = new SpeechSynthesisUtterance();
+            msg.text = document.getElementById("txtInput").value;
+            window.speechSynthesis.speak(msg);
+        })
+    </script>
+</body>
+</html>
